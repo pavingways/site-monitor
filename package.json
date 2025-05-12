@@ -1,0 +1,15 @@
+{
+  "name": "monitoring",
+  "version": "0.0.1",
+  "main": "monitor.js",
+  "scripts": {
+    "schedule": "npx node-cron '*/1 * * * *' 'node ./monitor.js'"
+  },
+  "author": "Rocco",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "node-cron": "^4.0.3",
+    "puppeteer": "^24.8.2"
+  }
+}

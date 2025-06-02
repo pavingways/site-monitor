@@ -1,4 +1,3 @@
-const cron = require('node-cron');
 const { spawn } = require('child_process');
 const INTERVAL = process.env.INTERVAL || 1;
 
@@ -16,7 +15,8 @@ const spawnMonitor = () => {
 // initial run
 spawnMonitor();
 
-// schedule runs
-cron.schedule(`*/${INTERVAL} * * * *`, () => {
+// schedule runs every INTERVAL minutes continuously
+const intervalMs = INTERVAL * 60 * 1000; // Convert minutes to milliseconds
+setInterval(() => {
     spawnMonitor();
-});
+}, intervalMs);
